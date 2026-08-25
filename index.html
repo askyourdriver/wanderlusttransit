@@ -1,304 +1,528 @@
 <!DOCTYPE html>
 <!--
 ═══════════════════════════════════════════════════════════
-WANDERLUSTTRANSIT.COM — SETUP CHECKLIST
-1. INQUIRY FORM: the form posts to Formspree (free tier,
-   50 submissions/mo). Sign up at formspree.io, create a
-   form, and replace YOUR_FORM_ID below with your real ID.
-   Until then the form won't deliver anything.
-2. PHONE/EMAIL: already set to 828-798-9884 /
-   Hello@askyourdriver.com — swap if you set up a
-   dedicated rental email (e.g. rentals@wanderlusttransit.com).
-3. PRICING: rates say "from $X/day" as placeholders —
-   set your real numbers or delete the price lines.
-4. PHOTOS: swap the emoji placeholders in fleet cards for
-   real photos of your vehicles once you have them.
-   Real photos convert far better than icons.
+ASKYOURDRIVER.COM — ASHEVILLE — SETUP CHECKLIST
+1. AdSense: apply at adsense.google.com, then paste your
+   script tag where marked "ADSENSE" below (2 places + head).
+2. Affiliates: join these, then replace links marked TODO:
+   • Viator (travelpayouts.com or viator.com/partner) — tours
+   • GetYourGuide Partner — tours (alternative)
+   • Booking.com Affiliate Partner — hotels
+3. Tips: replace # in Venmo/Cash App buttons with your links
+   (venmo.com/u/YourHandle, cash.app/$YourHandle).
+4. Sponsors: the "Featured" card shows businesses what they
+   get for a monthly fee. Swap in a real sponsor when sold.
 ═══════════════════════════════════════════════════════════
 -->
 <html lang="en">
 <head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-28WX72L2DH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-28WX72L2DH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Wanderlust Transit — Van &amp; Car Rentals in Asheville, NC</title>
-<meta name="description" content="12–15 passenger transit vans, Suburbans, minivans, and cars for rent in Asheville, NC. Weddings, family reunions, church groups, and mountain trips. Local, straightforward, no airport counter.">
-<meta property="og:title" content="Wanderlust Transit — Van & Car Rentals in Asheville">
-<meta property="og:description" content="12–15 passenger vans, Suburbans, minivans, and cars. Local Asheville rentals for groups.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232B2118'/%3E%3Cpath d='M18 62 L34 40 L50 54 L66 34 L84 62 Z' fill='%23E07A3F'/%3E%3Ccircle cx='72' cy='30' r='9' fill='%23F2C14E'/%3E%3C/svg%3E">
+<title>AskYourDriver — Asheville | Local Picks from the Front Seat</title>
+<meta name="description" content="Real Asheville recommendations from your rideshare driver: where locals eat, drink, hike, and hear live music — plus the tours actually worth booking.">
+<!-- ADSENSE: paste your AdSense <script> tag here after approval --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2128817423956394"
+     crossorigin="anonymous"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 380'%3E%3Crect width='380' height='380' rx='76' fill='%2316222B'/%3E%3Ccircle cx='190' cy='190' r='135' fill='none' stroke='%23E8B76B' stroke-width='14'/%3E%3Ccircle cx='190' cy='190' r='92' fill='none' stroke='%23EDF3F2' stroke-width='16'/%3E%3Cline x1='158' y1='178' x2='108' y2='160' stroke='%23EDF3F2' stroke-width='16'/%3E%3Cline x1='222' y1='178' x2='272' y2='160' stroke='%23EDF3F2' stroke-width='16'/%3E%3Cpolygon points='162,194 218,194 190,278' fill='%23E8B76B'/%3E%3Ccircle cx='190' cy='184' r='34' fill='%23E8B76B'/%3E%3Ccircle cx='190' cy='184' r='13' fill='%2316222B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme: dark;
-  --bg:#2B2118;        /* warm dark earth */
-  --bg-2:#37291D;
-  --card:#3E2E20;
-  --edge:#54402D;
-  --text:#F6EFE7;
-  --soft:#CBB9A6;
-  --rust:#E07A3F;      /* primary accent */
-  --sun:#F2C14E;       /* secondary accent */
-  --sage:#8CA37B;
+  --bg:#16222B;          /* page background */
+  --card:#233742;        /* card surface */
+  --card-edge:#314855;   /* card border */
+  --text:#EDF3F2;        /* primary text — light */
+  --text-soft:#B8C9C6;   /* secondary text — still light */
+  --amber:#E8B76B;       /* accent */
+  --amber-deep:#D99A3F;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:var(--sun)}
-.wrap{max-width:1000px;margin:0 auto;padding:0 1.25rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:'Karla',sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{color:var(--amber)}
 
-/* HERO */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#1F170F 0%,#2B2118 60%,#37291D 100%);padding:3rem 0 0;text-align:center}
-.hero h1{font-family:Bitter,serif;font-size:clamp(2.1rem,7vw,3.6rem);line-height:1.08;color:#fff;margin:.8rem 0 .9rem}
-.hero .kicker{font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sun)}
-.hero p.lede{color:var(--soft);font-size:1.08rem;max-width:52ch;margin:0 auto 1.6rem}
-.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-bottom:2rem}
-.btn{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;padding:.95rem 1.7rem;font-size:1rem}
-.btn-primary{background:var(--rust);color:#fff}
-.btn-ghost{border:2px solid var(--edge);color:var(--text)}
-.btn-moto{background:var(--sun);color:#2B2118}
-.ridge{display:block;width:100%;height:auto}
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(180deg,#101A21 0%,#16222B 55%,#1D2E38 100%);color:var(--text);padding:2.5rem 1.25rem 0;text-align:center;position:relative;overflow:hidden}
+.hero-inner{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.brand{font-family:'Zilla Slab',serif;font-weight:700;font-size:1.05rem;letter-spacing:.02em;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:.55rem;justify-content:center}
+.brand svg{width:44px;height:44px;flex:0 0 auto}
+.brand span{color:var(--amber)}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-top:1.5rem}
+.hero h1{font-family:'Zilla Slab',serif;font-weight:700;font-size:clamp(2rem,8vw,3rem);line-height:1.1;margin:.6rem 0 1rem;color:#FFFFFF}
+.hero p{color:var(--text-soft);font-size:1.02rem;max-width:36ch;margin:0 auto 1.5rem}
+.ridge-svg{display:block;width:100%;height:auto;margin-top:1.5rem}
 
-/* TRUST STRIP */
-.trust{background:var(--bg-2);border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
-.trust ul{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;list-style:none;padding:1rem 1.25rem;font-size:.93rem;color:var(--soft)}
-.trust li strong{color:var(--sun)}
+/* ---------- NAV CHIPS ---------- */
+.chips{display:flex;gap:.5rem;overflow-x:auto;padding:1rem 1.25rem;position:sticky;top:0;background:#101A21;z-index:10;border-bottom:1px solid var(--card-edge);-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-size:.85rem;font-weight:700;text-decoration:none;color:var(--text);background:var(--card);border:1.5px solid var(--card-edge);border-radius:999px;padding:.5rem .95rem;white-space:nowrap}
+.chip:active{background:var(--amber);border-color:var(--amber);color:#16222B}
 
-/* SECTIONS */
-section{padding:3rem 0 .5rem}
-h2{font-family:Bitter,serif;font-size:1.9rem;color:#fff;margin-bottom:.4rem}
-.sub{color:var(--soft);margin-bottom:1.5rem;max-width:60ch}
+/* ---------- SECTIONS ---------- */
+main{max-width:640px;margin:0 auto;padding:0 1.25rem 3rem}
+section{padding-top:2.25rem}
+.blaze{display:inline-block;width:12px;height:18px;border-radius:2px;margin-right:.55rem;vertical-align:-2px}
+h2{font-family:'Zilla Slab',serif;font-weight:600;font-size:1.55rem;margin-bottom:.35rem;color:#FFFFFF}
+.section-note{color:var(--text-soft);font-size:.92rem;margin-bottom:1rem}
+.rec{background:var(--card);border:1px solid var(--card-edge);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.75rem;position:relative}
+.rec h3{font-family:'Zilla Slab',serif;font-weight:600;font-size:1.12rem;color:#FFFFFF}
+.rec .hood{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.rec p{font-size:.95rem;margin-top:.35rem;color:var(--text)}
+.rec a.maps,.rec a.book{display:inline-block;margin-top:.55rem;font-size:.85rem;font-weight:700;text-decoration:none}
+.rec a.book{background:var(--amber);color:#16222B;border-radius:999px;padding:.5rem 1rem;margin-right:.5rem}
 
-/* FLEET */
-.fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-.v{background:var(--card);border:1px solid var(--edge);border-radius:16px;padding:1.3rem;position:relative}
-.v .icon{font-size:2.6rem;line-height:1}
-.v h3{font-family:Bitter,serif;font-size:1.25rem;color:#fff;margin:.5rem 0 .1rem}
-.v .seats{font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--rust)}
-.v p{font-size:.95rem;color:var(--soft);margin-top:.5rem}
-.v .rate{margin-top:.8rem;font-weight:700;color:var(--sun)}
-.v.flag{border-color:var(--rust)}
-.tag{position:absolute;top:-.6rem;right:1rem;background:var(--rust);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.2rem .7rem}
+/* ---------- FEATURED / SPONSOR ---------- */
+.rec.featured{border:2px solid var(--amber);background:#2C3E2F}
+.badge{position:absolute;top:-.65rem;right:1rem;background:var(--amber);color:#16222B;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.2rem .7rem}
 
-/* USE CASES */
-.uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem}
-.use{background:var(--bg-2);border:1px solid var(--edge);border-radius:12px;padding:1rem}
-.use h4{font-size:1rem;color:#fff;margin-bottom:.2rem}
-.use p{font-size:.9rem;color:var(--soft)}
+/* ---------- OWN-BUSINESS PROMO ---------- */
+.promo{display:block;text-decoration:none;margin:1.25rem auto 0;max-width:640px;background:linear-gradient(135deg,#2E2418 0%,#3E2E20 100%);border:2px solid #E07A3F;border-radius:14px;padding:1rem 1.1rem;position:relative}
+.promo .tagline{font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#F2C14E}
+.promo h3{font-family:'Zilla Slab',serif;font-size:1.15rem;color:#FFFFFF;margin:.2rem 0 .3rem}
+.promo p{font-size:.92rem;color:#E4D6C6;margin:0}
+.promo .go{display:inline-block;margin-top:.7rem;background:#E07A3F;color:#FFFFFF;font-weight:700;font-size:.85rem;border-radius:999px;padding:.45rem 1rem}
+.promo .fleet-line{font-size:.8rem;color:#CBB9A6;margin-top:.5rem}
 
-/* HOW */
-ol.how{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-ol.how li{counter-increment:s;background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:1.2rem 1.2rem 1.2rem 3.4rem;position:relative;font-size:.95rem;color:var(--soft)}
-ol.how li::before{content:counter(s);position:absolute;left:1.1rem;top:1.1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--rust);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem}
-ol.how li strong{display:block;color:#fff;font-size:1.02rem;margin-bottom:.15rem}
+/* ---------- AD SLOTS ---------- */
+.ad-slot{margin:2rem 0 0;padding:1.25rem;text-align:center;background:var(--card);border:1.5px dashed var(--card-edge);border-radius:12px;color:var(--text-soft);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase}
 
-/* FORM */
-.form-card{background:var(--card);border:2px solid var(--rust);border-radius:20px;padding:1.6rem}
-label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin:.9rem 0 .3rem}
-input,select,textarea{width:100%;background:#2B2118;border:1.5px solid var(--edge);border-radius:10px;padding:.8rem;color:var(--text);font-family:inherit;font-size:1rem}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--sun);border-color:var(--sun)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-@media (max-width:560px){.row{grid-template-columns:1fr}}
-button.submit{width:100%;margin-top:1.2rem;background:var(--rust);color:#fff;border:none;border-radius:999px;padding:1rem;font-size:1.05rem;font-weight:700;font-family:inherit;cursor:pointer}
-.or{text-align:center;color:var(--soft);font-size:.92rem;margin-top:1rem}
-
-/* FAQ */
-details{background:var(--bg-2);border:1px solid var(--edge);border-radius:12px;padding:.9rem 1.1rem;margin-bottom:.6rem}
-summary{cursor:pointer;font-weight:600;color:#fff}
-details p{color:var(--soft);font-size:.94rem;margin-top:.6rem}
-
-footer{text-align:center;padding:2.5rem 1.25rem 3rem;color:var(--soft);font-size:.87rem}
-footer a{color:var(--sun)}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+/* ---------- TIP / FOOTER ---------- */
+.tip{margin-top:3rem;background:var(--card);border:2px solid var(--amber);color:var(--text);border-radius:16px;padding:1.75rem 1.4rem;text-align:center}
+.tip h2{color:#FFFFFF}
+.tip p{color:var(--text-soft);font-size:.95rem;margin:.5rem 0 1.1rem}
+.tip-btn{display:inline-block;background:var(--amber);color:#16222B;font-weight:700;text-decoration:none;border-radius:999px;padding:.8rem 1.6rem;margin:0 .3rem .5rem}
+footer{text-align:center;padding:2rem 1.25rem 3rem;font-size:.8rem;color:var(--text-soft);max-width:640px;margin:0 auto}
+footer a{color:var(--amber)}
+.chip:focus-visible,a:focus-visible,.tip-btn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="kicker">Asheville · Western North Carolina</div>
-    <h1>Get the whole crew<br>there in one vehicle.</h1>
-    <p class="lede">Wanderlust Transit rents 12–15 passenger transit vans, Suburbans, minivans, and cars — the go-to for Asheville weddings, bachelor and bachelorette weekends, and any group that'd rather ride together than caravan. <strong style="color:var(--sun)">Plus motorcycles</strong>, for when the Parkway is the whole point.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#inquire">Check availability</a>
-      <a class="btn btn-moto" href="https://www.riders-share.com/user/QLtMzdt4BmapyssWk" target="_blank" rel="noopener">🏍️ Rent a motorcycle</a>
-      <a class="btn btn-ghost" href="tel:8287989884">Call 828-798-9884</a>
-    </div>
+  <div class="hero-inner">
+    <a class="brand" href="https://askyourdriver.com">
+      <svg viewBox="0 0 380 380" aria-hidden="true">
+        <circle cx="190" cy="190" r="135" fill="none" stroke="#E8B76B" stroke-width="14"/>
+        <circle cx="190" cy="190" r="92" fill="none" stroke="#EDF3F2" stroke-width="16"/>
+        <line x1="158" y1="178" x2="108" y2="160" stroke="#EDF3F2" stroke-width="16"/>
+        <line x1="222" y1="178" x2="272" y2="160" stroke="#EDF3F2" stroke-width="16"/>
+        <polygon points="162,194 218,194 190,278" fill="#E8B76B"/>
+        <circle cx="190" cy="184" r="34" fill="#E8B76B"/>
+        <circle cx="190" cy="184" r="13" fill="#16222B"/>
+      </svg>
+      <span>Ask<span style="color:var(--amber)">Your</span>Driver</span>
+    </a>
+    <div class="eyebrow">Asheville Edition</div>
+    <h1>You Just Asked Me<br>Where to Go.</h1>
+    <p>Here's the full answer — the spots I actually send people to, and the tours actually worth your money.</p>
   </div>
-  <svg class="ridge" viewBox="0 0 800 90" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,60 Q120,20 240,50 T480,38 T680,55 T800,32 L800,90 L0,90 Z" fill="#54402D" opacity=".5"/>
-    <path d="M0,72 Q140,44 300,66 T560,58 T800,70 L800,90 L0,90 Z" fill="#37291D"/>
+  <svg class="ridge-svg" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,80 Q100,30 200,65 T400,50 T600,70 T800,40 L800,120 L0,120 Z" fill="#314855" opacity="0.6"/>
+    <path d="M0,95 Q120,55 260,85 T520,75 T800,90 L800,120 L0,120 Z" fill="#233742" opacity="0.9"/>
+    <path d="M0,105 Q150,80 320,100 T650,95 T800,105 L800,120 L0,120 Z" fill="#16222B"/>
   </svg>
 </header>
 
-<div class="trust">
-  <ul>
-    <li><strong>Vans, SUVs &amp; cars</strong> — plus <strong>motorcycles</strong></li>
-    <li><strong>Local</strong> — no airport counter, no upsell desk</li>
-    <li><strong>Delivery</strong> to AVL, hotels &amp; rentals</li>
-    <li><strong>Real person</strong> answers the phone</li>
-  </ul>
-</div>
+<nav class="chips" aria-label="Categories">
+  <a class="chip" href="#tours">🎟️ Tours</a>
+  <a class="chip" href="#eat">🍴 Eat</a>
+  <a class="chip" href="#brunch">🥞 Brunch</a>
+  <a class="chip" href="#beer">🍺 Beer</a>
+  <a class="chip" href="#dives">🍻 Dive Bars</a>
+  <a class="chip" href="#coffee">☕ Coffee</a>
+  <a class="chip" href="#outdoors">⛰️ Outdoors</a>
+  <a class="chip" href="#music">🎸 Music</a>
+  <a class="chip" href="#stay">🛏️ Stay</a>
+</nav>
 
-<main class="wrap">
+<main>
 
-  <section id="celebrations">
-    <h2>Weddings &amp; Party Weekends</h2>
-    <p class="sub">Our biggest weekends are somebody else's best weekend. If you're planning one, you're in the right place.</p>
-    <div class="uses">
-      <div class="use"><h4>💍 Wedding parties</h4><p>Shuttle guests between ceremony, reception, and hotel. One van beats a dozen cars and a parking headache — and nobody has to skip the champagne toast.</p></div>
-      <div class="use"><h4>🥃 Bachelor weekends</h4><p>Brewery crawl through the South Slope, golf, the Parkway — everybody in one vehicle with a designated driver behind the wheel.</p></div>
-      <div class="use"><h4>🥂 Bachelorette weekends</h4><p>Wineries, downtown dinner, and the group photo op. Pull up together instead of splitting into three Ubers.</p></div>
-    </div>
-    <p class="sub" style="margin-top:1.2rem">Planning around a wedding date? Book early — October leaf season and spring wedding weekends are our first to sell out.</p>
+<a class="promo" href="https://wanderlusttransit.com" target="_blank" rel="noopener">
+  <div class="tagline">🚐 From your driver's other business</div>
+  <h3>Need wheels while you're here?</h3>
+  <p>Wanderlust Transit rents 12–15 passenger vans, Suburbans, minivans, cars — and motorcycles for the Parkway. Weddings, bachelor &amp; bachelorette weekends, and groups who'd rather ride together.</p>
+  <div class="fleet-line">Local Asheville rentals · delivery to AVL · 828-798-9884</div>
+  <span class="go">See the fleet →</span>
+</a>
+
+  <!-- TOURS FIRST: highest affiliate commission, highest intent for visitors -->
+  <section id="tours">
+    <h2><span class="blaze" style="background:#E8B76B"></span>Worth Booking</h2>
+    <p class="section-note">Tours my passengers rave about on the ride back. Booking through these links supports the site at no extra cost to you.</p>
+    <article class="rec">
+      <div class="hood">Downtown · ~90 min</div>
+      <h3>LaZoom Comedy Bus Tour</h3>
+      <p>The purple bus you'll see downtown. Half city tour, half comedy show — bring your own beer aboard.</p>
+      <a class="book" href="https://www.viator.com/tours/Asheville/LaZoom-City-Comedy-Tour/d22561-75473P1?pid=P00314987&mcid=42383&medium=link">Book tour →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South of town · Half day+</div>
+      <h3>FULL LIST OF MUST-DOs! Breweries, Wineries, Waterfalls, Scenic Mountain Trips, LaZoom Tours, Etc.!</h3>
+      <p>Here is a link to my most favorite things about Asheville:</p>
+      <a class="book" href="https://www.viator.com/partner-shop/askyourdriver/Asheville-Ask-Your-Driver?medium=link&medium_version=shop&campaign=AskYourDriver-Asheville">Get tickets →</a><!-- TODO: replace with your Viator affiliate link -->
+    </article>
+    <article class="rec">
+      <div class="hood">Pickup downtown · ~4 hrs</div>
+      <h3>Guided Waterfall Hike</h3>
+      <p>They handle the driving and the trail picks. Best option if you're here without a car.</p>
+      <a class="book" href="https://www.viator.com/tours/Asheville/Blue-Ridge-Parkway-Waterfalls-and-Hiking-Tour/d22561-18258P1?pid=P00314987&mcid=42383&medium=link&campaign=H">See tours →</a>
+    </article>
   </section>
 
-  <section id="moto">
-    <h2>🏍️ Motorcycle Rentals</h2>
-    <p class="sub">The Blue Ridge Parkway starts 15 minutes from here, and the Tail of the Dragon is an easy morning ride. Rent a bike and go take the good roads.</p>
-    <div class="v flag">
-      <span class="tag">Book on Riders Share</span>
-      <h3>Our bikes, ready to ride</h3>
-      <p>Browse current availability, dates, and rates on our Riders Share profile. Booking, insurance, and rider verification are handled there — same local owner, same phone number if you have questions.</p>
-      <p style="margin-top:1rem"><a class="btn btn-moto" href="https://www.riders-share.com/user/QLtMzdt4BmapyssWk" target="_blank" rel="noopener">See the bikes &amp; book →</a></p>
-    </div>
+  <div class="tip">
+    <h2>Enjoyed the ride?</h2>
+    <p>This list is free — tips keep it (and me) running. Safe travels.</p>
+    <a class="tip-btn" href="https://venmo.com/u/jarenislandrides">Tip on Venmo</a>
+    <a class="tip-btn" href="https://cash.app/$whatisthisfor1">Cash App</a>
+  </div>
+
+  <section id="eat">
+    <h2><span class="blaze" style="background:#D99A3F"></span>Where to Eat</h2>
+    <p class="section-note">Skip the tourist traps on the main drag. These are worth the wait.</p>
+    <article class="rec featured">
+      <span class="badge">Featured</span>
+      <div class="hood">Your Neighborhood Here</div>
+      <h3>This Spot Could Be Yours</h3>
+      <p>Local businesses: get in front of visitors the moment they arrive. One featured card per section. <a href="mailto:hello@askyourdriver.com">Ask about featuring →</a></p>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Jazmin</h3>
+      <p>Thai and Southeast Asian done right — locals fight over the dumplings. One of the highest-rated kitchens in town.</p>
+      <a class="maps" href="https://maps.google.com/?q=JAZMIN+22+College+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>Little Chango</h3>
+      <p>Latin American counter spot — arepas, ropa vieja, fried plantains. Cheap, fast, and absurdly good for the price.</p>
+      <a class="maps" href="https://maps.google.com/?q=Little+Chango+134+Coxe+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Cúrate</h3>
+      <p>Spanish tapas, the fancy-night-out pick. Book ahead — I've dropped off a lot of disappointed walk-ins.</p>
+      <a class="maps" href="https://maps.google.com/?q=Curate+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>Chai Pani</h3>
+      <p>James Beard-winning Indian street food — order the okra fries even if you think you don't like okra.</p>
+      <a class="maps" href="https://maps.google.com/?q=Chai+Pani+32+Banks+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown · Flat Iron Building</div>
+      <h3>Luminosa</h3>
+      <p>Italian in the historic Flat Iron Hotel — wood-fired pizzas, handmade pasta, and the best tiramisu in town.</p>
+      <a class="maps" href="https://maps.google.com/?q=Luminosa+20+Battery+Park+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Montford</div>
+      <h3>Tall John's</h3>
+      <p>Neighborhood spot that cooks like a fine-dining kitchen — goat cheese dumplings, maybe the best chicken in town. Sit at the kitchen bar and watch.</p>
+      <a class="maps" href="https://maps.google.com/?q=Tall+Johns+152+Montford+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Charlotte Street</div>
+      <h3>Bone and Broth</h3>
+      <p>Cozy neighborhood steakhouse — filets, whipped feta, and a bar worth sitting at. Great date-night pick.</p>
+      <a class="maps" href="https://maps.google.com/?q=Bone+and+Broth+94+Charlotte+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">River Arts District</div>
+      <h3>The Bull and Beggar</h3>
+      <p>Old-world European cooking in a warehouse by the river. Splurge-worthy — the dry-aged steaks are the move.</p>
+      <a class="maps" href="https://maps.google.com/?q=The+Bull+and+Beggar+37+Paynes+Way+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>The Lobster Trap</h3>
+      <p>Fresh oysters and Maine lobster in the mountains — trust me, it works. Live music most nights.</p>
+      <a class="maps" href="https://maps.google.com/?q=The+Lobster+Trap+35+Patton+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Asheville</div>
+      <h3>Juicy Lucy's Burger Bar</h3>
+      <p>Cheese-stuffed burgers and massive onion rings. Casual, family-friendly, and easy on the wallet — perfect after Biltmore.</p>
+      <a class="maps" href="https://maps.google.com/?q=Juicy+Lucys+620+Hendersonville+Rd+Asheville">Open in Maps →</a>
+    </article>
   </section>
 
-  <section id="fleet">
-    <h2>The Fleet</h2>
-    <p class="sub">Pick the size that fits your group. Not sure? Tell us the headcount and we'll point you at the right one.</p>
-    <div class="fleet">
-      <article class="v flag">
-        <span class="tag">Most requested</span>
-        <div class="icon">🚐</div>
-        <div class="seats">12–15 passengers</div>
-        <h3>Transit Van</h3>
-        <p>The whole wedding party, team, or church group in one vehicle. High roof, room for luggage, easy to drive.</p>
-        <div class="rate">from $XXX/day</div>
-      </article>
-      <article class="v">
-        <div class="icon">🚙</div>
-        <div class="seats">7–8 passengers</div>
-        <h3>Suburban</h3>
-        <p>Comfort plus cargo. Great for mountain roads, ski trips, and groups with real luggage.</p>
-        <div class="rate">from $XXX/day</div>
-      </article>
-      <article class="v">
-        <div class="icon">🚗</div>
-        <div class="seats">6–7 passengers</div>
-        <h3>Minivan</h3>
-        <p>The family workhorse — sliding doors, car seats welcome, easy parking downtown.</p>
-        <div class="rate">from $XXX/day</div>
-      </article>
-      <article class="v">
-        <div class="icon">🚘</div>
-        <div class="seats">4–5 passengers</div>
-        <h3>Cars</h3>
-        <p>Simple, economical, and ready when you just need wheels for a few days.</p>
-        <div class="rate">from $XX/day</div>
-      </article>
-    </div>
+  <section id="brunch">
+    <h2><span class="blaze" style="background:#E5C06B"></span>Breakfast &amp; Brunch</h2>
+    <p class="section-note">Asheville takes breakfast seriously. Go early or bring patience — the good ones have lines.</p>
+    <article class="rec">
+      <div class="hood">Downtown · Wall Street</div>
+      <h3>Early Girl Eatery</h3>
+      <p>Farm-to-table Southern breakfast, an Asheville institution. The biscuits and herb gravy are the order.</p>
+      <a class="maps" href="https://maps.google.com/?q=Early+Girl+Eatery+8+Wall+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Biltmore Avenue</div>
+      <h3>Eggs Rancheros Kitchen</h3>
+      <p>The locals' secret — authentic Latin breakfast, huge portions, tiny prices. Highest-rated breakfast in town.</p>
+      <a class="maps" href="https://maps.google.com/?q=Eggs+Rancheros+Kitchen+224+Biltmore+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville</div>
+      <h3>Biscuit Head</h3>
+      <p>Cat-head-sized biscuits and a jam bar you'll want to move into. Worth the line, every time.</p>
+      <a class="maps" href="https://maps.google.com/?q=Biscuit+Head+733+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Tupelo Honey Southern Kitchen</h3>
+      <p>Where Tupelo Honey started before it went national. Sweet potato pancakes and fried green tomatoes on grits.</p>
+      <a class="maps" href="https://maps.google.com/?q=Tupelo+Honey+12+College+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Montford · Sundays only</div>
+      <h3>Tall John's</h3>
+      <p>Sunday brunch, 9–2 — shakshuka, crispy potatoes, and none of the downtown lines. A local move.</p>
+      <a class="maps" href="https://maps.google.com/?q=Tall+Johns+152+Montford+Ave+Asheville">Open in Maps →</a>
+    </article>
   </section>
 
-  <section id="uses">
-    <h2>Who Rents From Us</h2>
-    <div class="uses">
-      <div class="use"><h4>Family reunions</h4><p>One vehicle, one driver, everybody together on the Parkway.</p></div>
-      <div class="use"><h4>Church &amp; team travel</h4><p>15-passenger vans for retreats, tournaments, and mission trips.</p></div>
-      <div class="use"><h4>Airport groups</h4><p>Fly into AVL, pick up the van, skip four separate rentals.</p></div>
-      <div class="use"><h4>Locals</h4><p>Moving, hauling, or a weekend where your car just isn't big enough.</p></div>
-      <div class="use"><h4>Brewery tours</h4><p>Rent the van, pick a designated driver, do Beer City right.</p></div>
-    </div>
+  <section id="beer">
+    <h2><span class="blaze" style="background:#7FA8A0"></span>Breweries</h2>
+    <p class="section-note">More breweries per capita than almost anywhere in the country. Start here — or let someone else drive:</p>
+    <article class="rec">
+      <div class="hood">Multiple stops · ~3 hrs</div>
+      <h3>Brewery Tour (Guided)</h3>
+      <p>Hit 3–4 breweries with a designated driver and skip the logistics. Popular with groups.</p>
+      <a class="book" href="https://www.viator.com/tours/Asheville/Sip-of-Asheville-Guided-Brewery-Tour/d22561-396043P2?pid=P00314987&mcid=42383&medium=link">Book tour →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>Burial Beer Co.</h3>
+      <p>Locals' favorite. Great saisons and stouts, scythe on the wall, food trucks out front.</p>
+      <a class="maps" href="https://maps.google.com/?q=Burial+Beer+Co+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">East Asheville</div>
+      <h3>Highland Brewing</h3>
+      <p>Asheville's original craft brewery — huge campus with live music, food trucks, volleyball, even free disc golf. Bring the whole crew.</p>
+      <a class="maps" href="https://maps.google.com/?q=Highland+Brewing+Company+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Wicked Weed Brewpub</h3>
+      <p>The famous one, and it earns it — killer sours, a full kitchen, and a big plant-filled patio right on Biltmore Ave.</p>
+      <a class="maps" href="https://maps.google.com/?q=Wicked+Weed+Brewing+91+Biltmore+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>Green Man Brewery</h3>
+      <p>Asheville's oldest brewery — legendary ESB and porter, three stories with a rooftop balcony over the South Slope.</p>
+      <a class="maps" href="https://maps.google.com/?q=Green+Man+Brewery+27+Buxton+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>White Labs Brewing</h3>
+      <p>Run by a yeast laboratory — nerdy in the best way. Same beer brewed with different yeasts, plus great wood-fired pizza.</p>
+      <a class="maps" href="https://maps.google.com/?q=White+Labs+Brewing+172+S+Charlotte+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Riverside · Craven St</div>
+      <h3>New Belgium Brewing</h3>
+      <p>Fat Tire's East Coast home — big lawn and balcony views over the French Broad. Free tours, sunset spot.</p>
+      <a class="maps" href="https://maps.google.com/?q=New+Belgium+Brewing+21+Craven+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Woodfin · Riverside</div>
+      <h3>Zillicoah Beer Co.</h3>
+      <p>Open-fermented lagers with picnic tables right on the riverbank. Food trucks, dogs, kids — the local hang.</p>
+      <a class="maps" href="https://maps.google.com/?q=Zillicoah+Beer+Co+870+Riverside+Dr+Woodfin">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Fairview · 20 min out</div>
+      <h3>Whistle Hop Brewing</h3>
+      <p>The bar is a real train caboose. Putt-putt, a big field, food truck — worth the short drive, especially with kids.</p>
+      <a class="maps" href="https://maps.google.com/?q=Whistle+Hop+Brewing+1288+Charlotte+Hwy+Fairview+NC">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Mills River · Near the airport</div>
+      <h3>Sierra Nevada Brewing</h3>
+      <p>A destination, not a stop — stunning campus, top-tier restaurant, and the best brewery tour in the region. Hit it on your way to or from AVL.</p>
+      <a class="maps" href="https://maps.google.com/?q=Sierra+Nevada+Brewing+100+Sierra+Nevada+Way+Fletcher+NC">Open in Maps →</a>
+    </article>
   </section>
 
-  <section id="how">
-    <h2>How It Works</h2>
-    <ol class="how">
-      <li><strong>Tell us your dates</strong>Send the form below or call. Include headcount and pickup/dropoff.</li>
-      <li><strong>We confirm &amp; quote</strong>You get a straight answer on availability and total price — no hidden counter fees.</li>
-      <li><strong>Pick up or we deliver</strong>Grab it locally, or we bring it to AVL, your hotel, or your rental house.</li>
-      <li><strong>Hit the road</strong>Return it when you're done. That's it.</li>
-    </ol>
+  <section id="dives">
+    <h2><span class="blaze" style="background:#C4757A"></span>Dive Bars</h2>
+    <p class="section-note">West Asheville, almost all of it strung along one stretch of Haywood Road. Cheap drinks, real locals, no craft-beer lecture. You can walk the whole run — and I'll pick you up when you're done.</p>
+    <article class="rec">
+      <div class="hood">West Asheville · 375 Haywood Rd</div>
+      <h3>Double Crown</h3>
+      <p>The one I send people to first. Low light, red glow, soul and country 45s on the turntable. Feels like a bar that's been there fifty years even though it hasn't.</p>
+      <a class="maps" href="https://maps.google.com/?q=Double+Crown+375+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 504 Haywood Rd</div>
+      <h3>Desoto Lounge</h3>
+      <p>Pinball, ping-pong, foosball, a good jukebox and a hidden back patio. Kitchen runs late, which matters at midnight. Easiest room in West for a group.</p>
+      <a class="maps" href="https://maps.google.com/?q=Desoto+Lounge+504+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 496 Haywood Rd</div>
+      <h3>Fleetwood's</h3>
+      <p>Vintage shop, dive bar, and a working Vegas-style wedding chapel under one roof. Punk and rock shows most nights. People genuinely do get married here at 11pm.</p>
+      <a class="maps" href="https://maps.google.com/?q=Fleetwoods+496+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 1045 Haywood Rd</div>
+      <h3>The Odd</h3>
+      <p>Formerly the Odditorium. Punk, metal, drag, burlesque, and murals on every surface. Open till 2am. Not a quiet-conversation bar — that's the point.</p>
+      <a class="maps" href="https://maps.google.com/?q=The+Odd+1045+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 777 Haywood Rd</div>
+      <h3>Westville Pub</h3>
+      <p>The true neighborhood pub of the strip — pool tables, trivia, live music, cheap pints, open 10:30am to 2am every day. Brews their own now as All Sevens.</p>
+      <a class="maps" href="https://maps.google.com/?q=Westville+Pub+777+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 784 Haywood Rd</div>
+      <h3>Universal Joint</h3>
+      <p>Right across the street from Westville. Burgers, tater tots, and one of the biggest patios in West. Where the strip goes when the weather's good.</p>
+      <a class="maps" href="https://maps.google.com/?q=Universal+Joint+784+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">West Asheville · 507 Haywood Rd</div>
+      <h3>The Whale</h3>
+      <p>Half a step up from a dive — a tiny beer bar with a constantly rotating list of imports you won't see anywhere else in town. Good last stop before the ride home.</p>
+      <a class="maps" href="https://maps.google.com/?q=The+Whale+507+Haywood+Rd+Asheville">Open in Maps →</a>
+    </article>
+    <p class="section-note" style="margin-top:1rem"><a href="/dive-bars.html"><strong>Read the full Haywood Road crawl guide →</strong></a> — how to sequence it, where to park, and what's still open at 1am.</p>
   </section>
 
-  <section id="inquire">
-    <h2>Check Availability</h2>
-    <p class="sub">Tell us what you need and we'll get back to you fast — usually the same day.</p>
-    <div class="form-card">
-      <!-- SETUP: replace YOUR_FORM_ID with your Formspree form ID -->
-      <form action="https://formspree.io/f/mqpzgojz" method="POST">
-        <div class="row">
-          <div>
-            <label for="name">Your name</label>
-            <input id="name" type="text" name="name" required>
-          </div>
-          <div>
-            <label for="phone">Phone</label>
-            <input id="phone" type="tel" name="phone" required>
-          </div>
-        </div>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required>
-
-        <div class="row">
-          <div>
-            <label for="start">Pickup date</label>
-            <input id="start" type="date" name="pickup_date" required>
-          </div>
-          <div>
-            <label for="end">Return date</label>
-            <input id="end" type="date" name="return_date" required>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="vehicle">Vehicle</label>
-            <select id="vehicle" name="vehicle">
-              <option>Transit van (12–15 passengers)</option>
-              <option>Suburban (7–8 passengers)</option>
-              <option>Minivan (6–7 passengers)</option>
-              <option>Car (4–5 passengers)</option>
-              <option>Motorcycle (booked via Riders Share)</option>
-              <option>Not sure — help me pick</option>
-            </select>
-          </div>
-          <div>
-            <label for="people">How many people</label>
-            <input id="people" type="number" name="passengers" min="1" max="15">
-          </div>
-        </div>
-
-        <label for="msg">Anything else? (pickup location, delivery to AVL, occasion)</label>
-        <textarea id="msg" name="message" rows="4"></textarea>
-
-        <button class="submit" type="submit">Send inquiry</button>
-      </form>
-      <p class="or">Prefer to talk? Call or text <a href="tel:8287989884">828-798-9884</a><br>or email <a href="mailto:Hello@askyourdriver.com">Hello@askyourdriver.com</a></p>
-    </div>
+  <section id="coffee">
+    <h2><span class="blaze" style="background:#B98A62"></span>Coffee</h2>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Double D's Coffee & Desserts</h3>
+      <p>Coffee served out of a double-decker London bus. Touristy? Yes. Worth the photo and the latte? Also yes.</p>
+      <a class="maps" href="https://maps.google.com/?q=Double+Ds+Coffee+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>Rowan Coffee</h3>
+      <p>Serious coffee in a beautiful vintage room — the baristas weigh every shot. Where I'd send a coffee snob.</p>
+      <a class="maps" href="https://maps.google.com/?q=Rowan+Coffee+66+Broadway+St+Asheville">Open in Maps →</a>
+    </article>
   </section>
 
-  <section id="faq">
-    <h2>Common Questions</h2>
-    <details><summary>Do I need a special license for a 15-passenger van?</summary><p>No — a regular driver's license is all you need. They drive much like a large SUV; just take corners wide and mind the height in parking decks.</p></details>
-    <details><summary>Can you deliver to the airport?</summary><p>Yes. We deliver to AVL, hotels, and vacation rentals in the Asheville area. Mention it in your inquiry and we'll confirm the details.</p></details>
-    <details><summary>What's included?</summary><p>Insurance requirements, mileage, and deposit details are confirmed when we send your quote — no surprise counter add-ons.</p></details>
-    <details><summary>How far in advance should I book?</summary><p>For peak season (October leaf season, wedding weekends, holidays), as early as you can. Vans book out first.</p></details>
-    <details><summary>Can we rent for a whole wedding weekend?</summary><p>Absolutely — most wedding and bachelor/bachelorette rentals run Friday through Sunday. Tell us the weekend in the form and we'll quote the full block.</p></details>
-    <details><summary>Do you rent motorcycles?</summary><p>Yes, through our <a href="https://www.riders-share.com/user/QLtMzdt4BmapyssWk" target="_blank" rel="noopener">Riders Share profile</a> — that's where you'll see the current bikes and book.</p></details>
+  <section id="outdoors">
+    <h2><span class="blaze" style="background:#8FBF9F"></span>Outdoors</h2>
+    <p class="section-note">You came for the mountains. Don't leave without one of these.</p>
+    <article class="rec">
+      <div class="hood">45 min — Blue Ridge Parkway</div>
+      <h3>Craggy Gardens</h3>
+      <p>Short walk, huge payoff. June rhododendron blooms are unreal. Bring a layer — it's always 10° cooler up there.</p>
+      <a class="maps" href="https://maps.google.com/?q=Craggy+Gardens">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">40 min — Old Fort</div>
+      <h3>Catawba Falls</h3>
+      <p>Rebuilt trail with staircases up the falls. Easy enough for kids, pretty enough for everyone.</p>
+      <a class="maps" href="https://maps.google.com/?q=Catawba+Falls">Open in Maps →</a>
+    </article>
   </section>
+
+  <section id="music">
+    <h2><span class="blaze" style="background:#C58BAF"></span>Live Music</h2>
+    <article class="rec">
+      <div class="hood">Downtown</div>
+      <h3>The Orange Peel</h3>
+      <p>The legendary room. Check the calendar — big names play this small stage all the time.</p>
+      <a class="maps" href="https://maps.google.com/?q=Orange+Peel+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">East Asheville</div>
+      <h3>The Grey Eagle</h3>
+      <p>Listening-room vibe, great sound, tacos in the back. My pick for a low-key night.</p>
+      <a class="maps" href="https://maps.google.com/?q=Grey+Eagle+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown · Coxe Ave</div>
+      <h3>Asheville Yards</h3>
+      <p>The big outdoor venue — national tours, food trucks, room to breathe. Check who's playing while you're in town.</p>
+      <a class="maps" href="https://maps.google.com/?q=Asheville+Yards+75+Coxe+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Biltmore Village area</div>
+      <h3>Hellbender</h3>
+      <p>Asheville's newest outdoor amphitheater — festival vibes, big-name acts, blanket-on-the-grass energy.</p>
+      <a class="maps" href="https://maps.google.com/?q=Hellbender+151+Thompson+St+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">Downtown · Patton Ave</div>
+      <h3>Asheville Music Hall</h3>
+      <p>Two floors, two stages, everything from funk to EDM — and One Stop downstairs for smaller, looser shows.</p>
+      <a class="maps" href="https://maps.google.com/?q=Asheville+Music+Hall+31+Patton+Ave+Asheville">Open in Maps →</a>
+    </article>
+    <article class="rec">
+      <div class="hood">South Slope</div>
+      <h3>Eulogy</h3>
+      <p>Burial Beer's intimate venue — killer bookings (metal to raves), clean sound, balcony seats if you'd rather sit. Grab a beer next door first.</p>
+      <a class="maps" href="https://maps.google.com/?q=Eulogy+10+Buxton+Ave+Asheville">Open in Maps →</a>
+    </article>
+  </section>
+
+  <section id="stay">
+    <h2><span class="blaze" style="background:#7F9DC5"></span>Still Need a Place?</h2>
+    <p class="section-note">Extending the trip or plans fell through — it happens more than you'd think.</p>
+    <article class="rec">
+      <div class="hood">All of Asheville</div>
+      <h3>Find a Room Tonight</h3>
+      <p>Compare downtown hotels, mountain cabins, and last-minute deals.</p>
+      <a class="book" href="https://www.booking.com/city/us/asheville.html">Search stays →</a><!-- TODO: replace with your Booking.com affiliate link -->
+    </article>
+  </section>
+
+  <div class="tip">
+    <h2>Enjoyed the ride?</h2>
+    <p>This list is free — tips keep it (and me) running. Safe travels.</p>
+    <a class="tip-btn" href="https://venmo.com/u/jarenislandrides">Tip on Venmo</a>
+    <a class="tip-btn" href="https://cash.app/$whatisthisfor1">Cash App</a>
+  </div>
 
 </main>
 
 <footer>
-  <strong>Wanderlust Transit LLC</strong> · Asheville, NC<br>
-  <a href="tel:8287989884">828-798-9884</a> · <a href="mailto:Hello@askyourdriver.com">Hello@askyourdriver.com</a><br>
-  wanderlusttransit.com · avl.rent<br>
-  Motorcycles: <a href="https://www.riders-share.com/user/QLtMzdt4BmapyssWk" target="_blank" rel="noopener">our Riders Share profile</a><br><br>
-  Visiting Asheville? Get local picks at <a href="https://askyourdriver.com">AskYourDriver.com</a>
+  <svg viewBox="0 0 380 380" aria-hidden="true" style="width:34px;height:34px;margin-bottom:.6rem">
+    <circle cx="190" cy="190" r="135" fill="none" stroke="#E8B76B" stroke-width="14"/>
+    <circle cx="190" cy="190" r="92" fill="none" stroke="#EDF3F2" stroke-width="16"/>
+    <line x1="158" y1="178" x2="108" y2="160" stroke="#EDF3F2" stroke-width="16"/>
+    <line x1="222" y1="178" x2="272" y2="160" stroke="#EDF3F2" stroke-width="16"/>
+    <polygon points="162,194 218,194 190,278" fill="#E8B76B"/>
+    <circle cx="190" cy="184" r="34" fill="#E8B76B"/>
+    <circle cx="190" cy="184" r="13" fill="#16222B"/>
+  </svg><br>
+  <div class="footnav" style="margin-bottom:.8rem">
+    <a href="/dive-bars.html">Dive Bars Guide</a> ·
+    <a href="/about.html">About</a> ·
+    <a href="/contact.html">Contact</a> ·
+    <a href="/privacy.html">Privacy</a>
+  </div>
+  AskYourDriver.com — made by your driver, an Asheville local.<br>
+  Also from me: <a href="https://wanderlusttransit.com">Wanderlust Transit</a> — van, car &amp; motorcycle rentals in Asheville.<br>
+  Some links are affiliate links and may earn a commission at no cost to you. It never changes what I recommend.<br>
+  Drive rideshare in another city? <a href="mailto:hello@askyourdriver.com">Get your own AskYourDriver page →</a>
 </footer>
 
+</body>
+</html>
 </body>
 </html>
